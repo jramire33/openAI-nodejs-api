@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import multer from 'multer';
 import path from 'path';
-import { getInfoFromText, getTextFromAudio } from '../controllers/iaServices.controller.js';
+import { getTextFromAudio } from '../controllers/iaServices.controller.js';
 
 const router = Router();
 
@@ -18,6 +18,5 @@ const upload = multer({ storage: storage });
 
 router.post('/audio/transcription', upload.single('audio'), getTextFromAudio);
 
-router.post('/text/info', getInfoFromText);
 
 export default router;
